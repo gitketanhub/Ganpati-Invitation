@@ -1,0 +1,948 @@
+/* ==========================================================================
+   Sections CSS — Cinematic Journey (Sections 01 to 10)
+   ========================================================================== */
+
+/* ==========================================================================
+   SECTION 01: SACRED PRELOADER
+   ========================================================================== */
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--bg-deep);
+  z-index: var(--z-loader);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden;
+  transition: opacity 0.8s cubic-bezier(0.7, 0, 0.3, 1), visibility 0.8s ease;
+}
+
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 107, 53, 0.18) 0%, rgba(90, 31, 36, 0.08) 50%, transparent 75%);
+  pointer-events: none;
+  animation: preloaderDiyaPulse 3s ease-in-out infinite alternate;
+}
+
+.preloader-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-sanskrit {
+  font-family: var(--font-devanagari);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 500;
+  color: var(--ivory);
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.preloader-divider {
+  width: 48px;
+  height: 1px;
+  background-color: var(--gold-muted);
+  margin: 1.5rem 0;
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.preloader-subtext {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes preloaderDiyaPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+/* ==========================================================================
+   SECTION 02: HERO — BAPPA'S ARRIVAL
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem var(--section-padding-x) 2.5rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transform: scale(1.06);
+  filter: brightness(0.72) contrast(1.05);
+  transition: transform 1.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(13, 11, 9, 0.15) 0%, rgba(13, 11, 9, 0.5) 60%, rgba(13, 11, 9, 0.92) 100%),
+              linear-gradient(to bottom, rgba(13, 11, 9, 0.6) 0%, transparent 35%, transparent 65%, rgba(13, 11, 9, 0.95) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  margin: auto 0;
+  max-width: 900px;
+}
+
+.hero-sanskrit {
+  font-family: var(--font-devanagari);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--gold-light);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 8.5vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.hero-subtitle {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  color: var(--ivory-muted);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.hero-footer {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  color: var(--ivory);
+}
+
+.scroll-indicator-arrow {
+  animation: floatDown 2s ease-in-out infinite;
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ==========================================================================
+   SECTION 03: TRANSITION — THE ARRIVAL
+   ========================================================================== */
+
+.transition-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(8rem, 18vh, 16rem) var(--section-padding-x);
+  background-color: var(--bg-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.transition-inner {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 10vh, 7rem);
+}
+
+.story-line {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  color: var(--ivory-muted);
+  opacity: 0.2;
+  transform: translateY(40px);
+  transition: color 0.4s ease;
+}
+
+.story-line.highlight {
+  color: var(--ivory);
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  font-weight: 400;
+}
+
+.story-accent-om {
+  font-family: var(--font-devanagari);
+  color: var(--gold-muted);
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   SECTION 04: PERSONAL INVITATION
+   ========================================================================== */
+
+.invitation-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: radial-gradient(ellipse at center, rgba(33, 26, 20, 0.45) 0%, var(--bg-deep) 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.invitation-card-editorial {
+  position: relative;
+  max-width: var(--container-narrow);
+  padding: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4.5rem);
+  border: 1px solid var(--border-subtle);
+  background: rgba(24, 19, 15, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 4px;
+}
+
+.invitation-diya-glow {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 107, 53, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.invitation-header-sanskrit {
+  font-family: var(--font-devanagari);
+  font-size: 1.125rem;
+  color: var(--gold-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+
+.invitation-statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  color: var(--ivory);
+  margin-bottom: 2rem;
+}
+
+.invitation-body {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--ivory-muted);
+  margin-bottom: 3rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.invitation-host-block {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.invitation-with-love {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+}
+
+.invitation-host-name {
+  font-family: var(--font-devanagari);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  color: var(--ivory);
+  letter-spacing: 0.04em;
+}
+
+.invitation-host-sub {
+  font-family: var(--font-devanagari);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   SECTION 05: DIVINE DARSHAN (EDITORIAL GALLERY)
+   ========================================================================== */
+
+.darshan-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-y) 0;
+  background-color: var(--bg-deep);
+  overflow: hidden;
+}
+
+.darshan-header {
+  text-align: center;
+  padding: 0 var(--section-padding-x) 4rem;
+}
+
+.darshan-title {
+  font-family: var(--font-devanagari);
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  letter-spacing: 0.04em;
+  color: var(--ivory);
+  margin-top: 0.75rem;
+}
+
+.darshan-subtitle {
+  font-family: var(--font-devanagari);
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  color: var(--gold-muted);
+  margin-top: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.darshan-editorial-layout {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 8vw, 7rem);
+}
+
+.gallery-row-full {
+  width: 100%;
+  position: relative;
+}
+
+.editorial-img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--bg-warm);
+}
+
+.editorial-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: brightness(0.85) contrast(1.03);
+}
+
+.editorial-img-container:hover img {
+  transform: scale(1.03);
+}
+
+.full-width-darshan {
+  height: clamp(380px, 65vh, 650px);
+}
+
+.gallery-row-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.gallery-row-split.reverse {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.portrait-darshan {
+  height: clamp(420px, 60vh, 580px);
+}
+
+.detail-darshan {
+  height: clamp(340px, 45vh, 440px);
+}
+
+.darshan-caption-block {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.darshan-caption-tag {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+}
+
+.darshan-caption-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.8vw, 1.5rem);
+  font-weight: 300;
+  color: var(--ivory-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SECTION 06: SACRED MOMENTS (DARSHAN, AARTI, PRASAD)
+   ========================================================================== */
+
+.moments-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background-color: var(--bg-warm);
+}
+
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.moment-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(13, 11, 9, 0.4);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  transition: border-color 0.4s ease, transform 0.4s ease;
+}
+
+.moment-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+}
+
+.moment-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.moment-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: transform 0.8s ease;
+}
+
+.moment-card:hover .moment-img-wrapper img {
+  transform: scale(1.04);
+}
+
+.moment-number {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-muted);
+}
+
+.moment-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  letter-spacing: 0.05em;
+  color: var(--ivory);
+  text-transform: uppercase;
+}
+
+.moment-desc {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ivory-muted);
+}
+
+/* ==========================================================================
+   SECTION 07: CELEBRATION DETAILS
+   ========================================================================== */
+
+.details-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: radial-gradient(ellipse at bottom, rgba(50, 16, 18, 0.25) 0%, var(--bg-deep) 70%);
+  display: flex;
+  justify-content: center;
+}
+
+.details-container {
+  width: 100%;
+  max-width: var(--container-narrow);
+  text-align: center;
+}
+
+.details-heading-group {
+  margin-bottom: 4rem;
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.detail-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+}
+
+.detail-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ivory);
+}
+
+.detail-subvalue {
+  font-family: var(--font-devanagari);
+  font-size: 1.05rem;
+  color: var(--ivory-muted);
+  max-width: 540px;
+  margin-top: 0.25rem;
+  line-height: 1.6;
+}
+
+.detail-landmark {
+  font-family: var(--font-devanagari);
+  font-size: 0.925rem;
+  color: var(--gold-light);
+  margin-top: 0.35rem;
+}
+
+/* Action Buttons Group */
+.cta-actions-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Primary Outlined CTA Button */
+.cta-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem;
+  min-height: 48px;
+  font-family: var(--font-devanagari);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--ivory);
+  border: 1px solid var(--gold-muted);
+  border-radius: 999px;
+  background-color: rgba(169, 139, 92, 0.1);
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.cta-directions-btn:hover {
+  background-color: var(--gold-muted);
+  color: var(--bg-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(169, 139, 92, 0.25);
+}
+
+.cta-directions-btn .btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.cta-directions-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Secondary CTA Buttons */
+.cta-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  min-height: 44px;
+  font-family: var(--font-devanagari);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--ivory-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background-color: rgba(24, 19, 15, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cta-secondary-btn:hover {
+  color: var(--gold-light);
+  border-color: var(--border-gold);
+  background-color: rgba(33, 26, 20, 0.8);
+  transform: translateY(-2px);
+}
+
+.cta-secondary-btn .btn-icon {
+  font-size: 0.95rem;
+}
+
+/* Sacred Toast Notification */
+.sacred-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  padding: 0.75rem 1.5rem;
+  background-color: rgba(24, 19, 15, 0.92);
+  border: 1px solid var(--gold-muted);
+  border-radius: 999px;
+  color: var(--ivory);
+  font-family: var(--font-devanagari);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  z-index: var(--z-modal);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+}
+
+.sacred-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   SECTION 08: CELEBRATION TIMELINE
+   ========================================================================== */
+
+.timeline-section {
+  position: relative;
+  width: 100%;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background-color: var(--bg-warm);
+}
+
+.timeline-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: var(--container-max);
+  margin: 4rem auto 0;
+}
+
+.timeline-editorial-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.timeline-big-num {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ivory-subtle);
+}
+
+.timeline-item-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+
+.timeline-item-desc {
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ivory-muted);
+}
+
+/* ==========================================================================
+   SECTION 09: PERSONAL CLOSING
+   ========================================================================== */
+
+.closing-section {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background: radial-gradient(circle at center, rgba(33, 26, 20, 0.6) 0%, var(--bg-deep) 80%);
+}
+
+.closing-container {
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.closing-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.25rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  color: var(--ivory);
+}
+
+.closing-subtext {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: var(--gold-light);
+  line-height: 1.6;
+}
+
+.closing-namaste {
+  font-size: 2.25rem;
+  margin-top: 1rem;
+  color: var(--gold-muted);
+  animation: gentlePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+/* ==========================================================================
+   SECTION 10: FINAL BLESSING & RETURN
+   ========================================================================== */
+
+.blessing-section {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 6rem var(--section-padding-x) 3rem;
+  background-color: var(--bg-deep);
+  overflow: hidden;
+}
+
+.blessing-diya-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 107, 53, 0.16) 0%, rgba(90, 31, 36, 0.06) 50%, transparent 75%);
+  pointer-events: none;
+  animation: preloaderDiyaPulse 4s ease-in-out infinite alternate;
+}
+
+.blessing-content {
+  position: relative;
+  z-index: 2;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.blessing-om {
+  font-family: var(--font-devanagari);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.blessing-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.5vw, 5rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: var(--ivory);
+}
+
+.blessing-subtitle {
+  font-family: var(--font-devanagari);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--gold-muted);
+  text-transform: uppercase;
+}
+
+.return-to-top-btn {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  min-height: 44px;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ivory-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: rgba(24, 19, 15, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.return-to-top-btn:hover {
+  color: var(--gold-light);
+  border-color: var(--border-gold);
+  transform: translateY(-3px);
+}

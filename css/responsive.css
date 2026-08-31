@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Responsive Breakpoints & Mobile Optimization
+   ========================================================================== */
+
+/* Large Desktops & Wide Screens (>= 1440px) */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1380px;
+    --container-editorial: 1180px;
+  }
+  
+  .hero-title {
+    font-size: 6.5rem;
+  }
+}
+
+/* Tablets and Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .moments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .timeline-editorial-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .gallery-row-split,
+  .gallery-row-split.reverse {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .portrait-darshan {
+    height: 480px;
+  }
+  
+  .detail-darshan {
+    height: 380px;
+  }
+}
+
+/* Tablets & Large Mobile (<= 768px) */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 4.5rem;
+    --section-padding-x: 1.25rem;
+  }
+
+  .site-header {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .header-left, .header-right {
+    gap: 0.75rem;
+  }
+
+  .audio-toggle-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .menu-toggle-btn {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.7rem;
+  }
+
+  .hero-section {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-title {
+    font-size: 3.25rem;
+    line-height: 1.05;
+  }
+
+  .moments-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .timeline-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .timeline-editorial-item {
+    padding-top: 1.5rem;
+  }
+
+  .invitation-card-editorial {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .full-width-darshan {
+    height: 320px;
+  }
+
+  .portrait-darshan {
+    height: 360px;
+  }
+
+  .detail-darshan {
+    height: 280px;
+  }
+
+  .detail-value {
+    font-size: 1.75rem;
+  }
+
+  .closing-statement {
+    font-size: 2rem;
+  }
+}
+
+/* Small Mobile Screens (<= 414px - 375px) */
+@media (max-width: 414px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .sacred-accent,
+  .hero-sanskrit {
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+
+  .invitation-statement {
+    font-size: 1.35rem;
+  }
+
+  .invitation-body {
+    font-size: 1.125rem;
+  }
+
+  .cta-directions-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+}

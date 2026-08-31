@@ -1,0 +1,6 @@
+{
+  "name": "Ganpati Bappa Morya — A Sacred Invitation",
+  "description": "A cinematic, immersive digital invitation experience for a home Ganpati celebration with divine darshan and event details.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

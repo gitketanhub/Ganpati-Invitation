@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Design System & Color Variables
+   ========================================================================== */
+
+:root {
+  /* Background Neutrals */
+  --bg-deep: #0d0b09;
+  --bg-warm: #18130f;
+  --bg-soft: #211a14;
+  --bg-elevated: #2a221b;
+
+  /* Typography & Foreground */
+  --ivory: #f4efe6;
+  --ivory-muted: #cfc6b8;
+  --ivory-faint: rgba(244, 239, 230, 0.45);
+  --ivory-subtle: rgba(244, 239, 230, 0.2);
+
+  /* Sacred Accents */
+  --maroon: #5a1f24;
+  --maroon-deep: #321012;
+  --maroon-glow: rgba(90, 31, 36, 0.4);
+  
+  --saffron: #b86b35;
+  --saffron-muted: #9e5828;
+  
+  --gold-muted: #a98b5c;
+  --gold-light: #c8ad7f;
+  --gold-glow: rgba(169, 139, 92, 0.25);
+
+  --stone: #332b24;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(244, 239, 230, 0.12);
+  --border-medium: rgba(244, 239, 230, 0.22);
+  --border-gold: rgba(169, 139, 92, 0.3);
+
+  /* Fonts */
+  --font-display: 'Rozha One', 'Noto Serif Devanagari', 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-devanagari: 'Noto Serif Devanagari', 'Rozha One', serif;
+  --font-devanagari-display: 'Rozha One', 'Noto Serif Devanagari', serif;
+
+  /* Layout Spacing */
+  --container-max: 1280px;
+  --container-narrow: 840px;
+  --container-editorial: 1040px;
+  --section-padding-y: clamp(5rem, 12vh, 10rem);
+  --section-padding-x: clamp(1.25rem, 5vw, 4rem);
+
+  /* Z-indices */
+  --z-grain: 90;
+  --z-nav: 100;
+  --z-modal: 150;
+  --z-loader: 200;
+}

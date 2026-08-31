@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Animations & Motion Design
+   ========================================================================== */
+
+/* Split Text and Reveal Utilities */
+.reveal-text-line {
+  display: block;
+  overflow: hidden;
+}
+
+.reveal-text-inner {
+  display: block;
+  will-change: transform, opacity;
+}
+
+/* Image reveal clip-path styles */
+.clip-reveal {
+  clip-path: inset(10% 0 10% 0);
+  opacity: 0;
+  transition: clip-path 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.2s ease;
+  will-change: clip-path, opacity;
+}
+
+.clip-reveal.is-revealed {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+
+/* Fade up elements */
+.fade-up-init {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+/* Diya Flame Ambient Flicker */
+.diya-flame-subtle {
+  animation: diyaFlicker 4s ease-in-out infinite alternate;
+}
+
+@keyframes diyaFlicker {
+  0% { opacity: 0.85; transform: scale(1); }
+  25% { opacity: 0.95; transform: scale(1.02); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+  75% { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 0.88; transform: scale(1); }
+}
+
+/* Floating Flower Petal Effect */
+.floating-petal {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50% 0 50% 50%;
+  background: radial-gradient(circle, rgba(235, 140, 52, 0.7) 0%, rgba(184, 107, 53, 0.3) 100%);
+  opacity: 0.6;
+  filter: blur(0.5px);
+  z-index: 5;
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-up-init,
+  .clip-reveal,
+  .story-line,
+  .detail-item,
+  .hero-sanskrit,
+  .hero-subtitle,
+  .hero-footer,
+  .hero-title span {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+  
+  .preloader {
+    display: none !important;
+  }
+}
